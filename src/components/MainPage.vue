@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <div class="modal" :class="modal ? 'active' : 'disabled'">
       <div class="slider">
         <div class="item" v-for="img in images" :key="img">
@@ -21,8 +21,8 @@
           </div>
         </div>
         <div class="arrow_mobile">
-          <a class="previous_mobile" onclick="previousSlide()">&#10094;</a>
-          <a class="next_mobile" onclick="nextSlide()">&#10095;</a>
+          <a class="previous_mobile" v-on:click="previousSlide()">&#10094;</a>
+          <a class="next_mobile" v-on:click="nextSlide()">&#10095;</a>
         </div>
       </div>
     </div>
@@ -275,6 +275,16 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+
+  .controls-container {
+    flex-direction: column;
+  }
+
+  .slider {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .item {
     flex-direction: column;
   }
@@ -297,6 +307,10 @@ body {
 
   .arrow_mobile {
     display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
     justify-content: space-around;
   }
 
